@@ -10,7 +10,12 @@ class Api::V1::EmergenciesController < Api::V1::BaseController
   end
 
   def show
-    render json: Emergency.find(params[:id])
+    emergency =   Emergency.find_by_id(params[:id])
+    if emergency
+      render json: emergency
+    else
+      #todo: record not found
+    end
   end
 
   private
