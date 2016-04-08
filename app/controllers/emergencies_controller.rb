@@ -1,9 +1,9 @@
-class Api::EmergenciesController < Api::BaseController
+class EmergenciesController < BaseController
 
   def new
     not_found
   end
-  
+
   def create
     emergency = Emergency.create(emergency_parameters)
     unless emergency.errors.any?
